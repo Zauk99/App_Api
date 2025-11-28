@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title th:text="${titulo}"></title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+  </head>
+  <body>
+    <div class="cabeza">
+      <div class="logo">
+        <a th:href="@{/}"
+          ><img th:src="@{/img/logo.png}" alt="Logo TaskFlow Solutions"
+        /></a>
+      </div>
+      <a th:href="@{/}" class="boton-enlace"> Cerrar sesión </a>
+    </div>
+
+    <div class="formulario-container">
+      <form
+        th:action="${usuario.id == null} ? @{/usuarios/crear} : @{/usuarios/editar/{id}(id=${usuario.id})}"
+        th:object="${usuario}"
+        method="post"
+        class="formulario"
+      >
+        <h1 th:text="${titulo}">Formulario de Usuario</h1>
+
+        <input type="hidden" th:field="*{id}" th:if="${usuario.id != null}" />
+
+        <div>
+          <label for="nombre">Nombre Completo:</label>
+          <input
+            type="text"
+            id="nombre"
+            th:field="*{nombreCompleto}"
+            required
+          />
+        </div>
+
+        <div>
+          <label for="telefono">Teléfono:</label>
+          <input type="text" id="telefono" th:field="*{telefono}" />
+        </div>
+
+        <div>
+          <label for="email">Email:</label>
+          <input type="email" id="email" th:field="*{email}" required />
+        </div>
+
+        <div th:if="${usuario.id == null}">
+          <label for="contrasena">Contraseña:</label>
+          <input
+            type="password"
+            id="contrasena"
+            th:field="*{contrasena}"
+            required
+          />
+        </div>
+
+        <div>
+          <label for="rol">Rol:</label>
+          <select id="rol" th:field="*{rol}" required>
+            <option value="ADMINISTRADOR">Administrador</option>
+            <option value="GESTOR_PROYECTO">Gestor</option>
+            <option value="TRABAJADOR">Trabajador</option>
+            <option value="COLABORADOR">Colaborador</option>
+          </select>
+        </div>
+
+        <div class="form-buttons">
+          <a th:href="@{/usuarios}" class="boton-enlace-cancelar"> Cancelar </a>
+          <button type="submit">Guardar Usuario</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

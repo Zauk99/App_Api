@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Gestión de Usuarios - TaskFlow Solutions</title>
+
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+  </head>
+  <body>
+    <div class="cabeza">
+      <div class="logo">
+        <a th:href="@{/}"
+          ><img th:src="@{/img/logo.png}" alt="Logo TaskFlow Solutions"
+        /></a>
+      </div>
+      <a th:href="@{/}" class="boton-enlace"> Cerrar sesión </a>
+    </div>
+
+    <div class="formulario-container">
+      <div>
+        <h1>Lista de Usuarios</h1>
+
+        <a th:href="@{/usuarios/crear}">
+          <button>+ Crear Nuevo Usuario</button>
+        </a>
+
+        <p
+          th:if="${error}"
+          th:text="${error}"
+          style="color: red; font-weight: bold; margin-bottom: 15px"
+        ></p>
+
+        <table border="1">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Email</th>
+              <th>Rol</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr th:each="usuario : ${usuarios}">
+              <td th:text="${usuario.nombreCompleto}"></td>
+              <td th:text="${usuario.email}"></td>
+              <td th:text="${usuario.rol}"></td>
+
+              <td>
+                <a th:href="@{/usuarios/editar/{id}(id=${usuario.id})}">
+                  <button>Editar</button>
+                </a>
+
+                <th:block th:if="${usuario.id != idAdminProtegido}">
+                  <form
+                    th:action="@{/usuarios/eliminar/{id}(id=${usuario.id})}"
+                    method="post"
+                    style="display: inline"
+                  >
+                    <button
+                      type="submit"
+                      onclick="return confirm('¿Estás seguro de que quieres eliminar a este usuario?');"
+                    >
+                      Eliminar
+                    </button>
+                  </form>
+                </th:block>
+                <span
+                  th:if="${usuario.id == idAdminProtegido}"
+                  style="color: grey"
+                  >(Protegido)</span
+                >
+              </td>
+            </tr>
+            <tr th:if="${usuarios.empty}">
+              <td colspan="5">No hay usuarios registrados.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

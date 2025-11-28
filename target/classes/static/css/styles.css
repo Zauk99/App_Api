@@ -1,0 +1,334 @@
+/* Fuente Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+
+/* --- Reset Básico --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f8f9fa; /* Fondo ligeramente gris */
+    color: #333;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* --- Cabecera --- */
+.cabeza {
+    /* Usando las reglas del inicio, ya que eran más completas */
+    background-color: #1E90FF; /* Azul brillante */
+    padding: 15px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    color: white; /* Añadido para la cabecera */
+}
+
+.cabeza img {
+    height: 50px;
+    width: auto;
+    display: block;
+}
+
+/* --- Botones Generales (Estilo Amarillo) --- */
+.boton-enlace,
+button:not(.form-buttons button, .form-buttons .boton-enlace-cancelar) { 
+    /* El selector :not() excluye los botones del formulario para que no se vean afectados */
+    background-color: #F4EE55; /* Amarillo */
+    color: #333;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 5px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+    display: inline-block;
+    text-align: center;
+}
+
+.boton-enlace:hover,
+button:not(.form-buttons button, .form-buttons .boton-enlace-cancelar):hover {
+    background-color: #e3d940;
+    transform: translateY(-2px);
+}
+
+/* --- Título --- */
+.titulo {
+    text-align: center;
+    padding: 60px 20px 40px;
+}
+
+.titulo h1 {
+    font-size: 3rem;
+    color: #333;
+    font-weight: 800;
+}
+
+/* --- Layout Principal (2 Columnas) --- */
+.contenido-principal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 50px 80px;
+    gap: 60px;
+}
+
+.imagen {
+    flex: 1;
+}
+
+.imagen img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.texto {
+    flex: 1;
+    font-size: 1.1rem;
+}
+
+.texto p {
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.boton-central {
+    margin-top: 30px;
+}
+
+.boton-central .boton-enlace {
+    padding: 15px 40px;
+    font-size: 1.2rem;
+}
+
+/* ======================================= */
+/* --- Estilos para Formularios de Login/CRUD --- */
+/* ======================================= */
+
+.login-container,
+.formulario-container {
+    display: flex;
+    justify-content: center;
+    /* Usamos las reglas limpias del final */
+    align-items: flex-start; 
+    min-height: 80vh; 
+    padding: 40px 20px;
+}
+
+.formulario {
+    background: #ffffff;
+    padding: 30px 40px; /* Ajuste basado en la versión más reciente */
+    border-radius: 10px; /* Ajuste basado en la versión más reciente */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px; /* Más ancho para formularios CRUD */
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Espacio entre los elementos del formulario */
+}
+
+.formulario h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.formulario div {
+    display: flex;
+    flex-direction: column; /* Estilo moderno de formularios */
+}
+
+.formulario label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600; /* Uso de font-weight 600 y 700 */
+    color: #555;
+    font-size: 0.95em;
+}
+
+.formulario input[type="email"],
+.formulario input[type="password"],
+.formulario input[type="text"],
+.formulario select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd; /* Estilo de borde limpio */
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.formulario input:focus,
+.formulario select:focus {
+    border-color: #1E90FF; /* Azul al enfocar */
+    box-shadow: 0 0 0 0.2rem rgba(30, 144, 255, 0.25);
+    outline: none;
+}
+
+/* Estilo para las opciones extra (Olvidaste tu contraseña) */
+.opciones {
+    text-align: right;
+    margin-top: -10px;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+}
+
+.opciones a {
+    color: #1E90FF;
+}
+
+/* --- Botones Específicos del Formulario CRUD --- */
+
+.form-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.form-buttons button,
+.form-buttons .boton-enlace-cancelar {
+    flex-grow: 1;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-align: center;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-buttons button[type="submit"] {
+    background-color: #28a745; /* Verde para guardar */
+    color: white;
+}
+
+.form-buttons button[type="submit"]:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+}
+
+.form-buttons .boton-enlace-cancelar {
+    background-color: #dc3545; /* Rojo para cancelar */
+    color: white;
+}
+
+.form-buttons .boton-enlace-cancelar:hover {
+    background-color: #c82333;
+    transform: translateY(-2px);
+}
+
+/* --- Responsive (Móvil) --- */
+@media (max-width: 900px) {
+
+    .contenido-principal {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .cabeza {
+        padding: 15px 20px;
+    }
+
+    .titulo h1 {
+        font-size: 2.2rem;
+    }
+
+    table {
+        width: 100%;
+        font-size: 0.9rem;
+    }
+
+    th,
+    td {
+        padding: 8px;
+    }
+}
+
+/* ======================================= */
+/* --- Estilos para Tablas (Lista de Usuarios) --- */
+/* ======================================= */
+
+table {
+    width: 80%;
+    margin: 20px auto 40px; /* Más margen inferior */
+    border-collapse: collapse;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    border-radius: 8px; /* Borde redondeado para la tabla */
+    overflow: hidden; /* Necesario para que el borde redondeado funcione con la cabecera */
+}
+
+th,
+td {
+    padding: 14px 18px; /* Más padding para más espacio */
+    text-align: left;
+    border-bottom: 1px solid #e9ecef; /* Línea divisoria más sutil */
+}
+
+th {
+    background-color: #1E90FF; /* Cabecera azul */
+    color: #ffffff;
+    font-weight: 700; /* Más énfasis en la cabecera */
+    text-transform: uppercase; /* MAYÚSCULAS para las cabeceras */
+}
+
+tr:nth-child(even) {
+    background-color: #f7f7f7; /* Rayado sutil */
+}
+
+tr:hover {
+    background-color: #e9ecef;
+}
+
+/* --- Estilos para los botones dentro de la columna 'Acciones' --- */
+.acciones-td {
+    display: flex;
+    gap: 8px; /* Espacio entre los botones 'Editar' y 'Eliminar' */
+    padding: 10px 0; /* Ajuste el padding para los botones de acción */
+}
+
+.acciones-td .boton-enlace,
+.acciones-td button {
+    /* Estilos para los botones dentro de la tabla */
+    padding: 8px 12px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+
+/* Botón Editar (Genérico - Amarillo) */
+.acciones-td .boton-enlace:first-child { 
+    background-color: #F4EE55;
+    color: #333;
+}
+
+/* Botón Eliminar (Nuevo - Rojo) */
+.acciones-td .boton-eliminar {
+    background-color: #dc3545; /* Rojo para Eliminar */
+    color: white;
+}
+
+.acciones-td .boton-eliminar:hover {
+    background-color: #c82333;
+    transform: translateY(-1px);
+}

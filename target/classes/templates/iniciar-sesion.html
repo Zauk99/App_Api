@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8">
+    <title>Iniciar Sesión - TaskFlow</title>
+    
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+  </head>
+  <body>
+    <div class="cabeza">
+      <img th:src="@{/img/logo.png}" alt="TaskFlow Solutions Logo" />
+    </div>
+
+    <div class="titulo">
+      <h1>Iniciar sesión</h1>
+    </div>
+
+    <p th:if="${error}" th:text="${error}" style="color: red; text-align: center; margin-bottom: 20px;"></p>
+
+    <main class="login-container">
+      <div class="formulario">
+        <form th:action="@{/iniciar-sesion}" method="post">
+          <div>
+            <label for="email-input">Introduzca su email:</label>
+            <input
+              type="email"
+              id="email-input"
+              name="email"
+              placeholder="ejemplo@dominio.com"
+              required
+            />
+          </div>
+
+          <div>
+            <label for="password-input">Introduzca su contraseña:</label>
+            <input
+              type="password"
+              id="password-input"
+              name="contrasena"
+              required
+            />
+          </div>
+
+          <p class="opciones">
+            <a href="#">¿Olvidaste tu contraseña?</a>
+          </p>
+
+          <button type="submit">Iniciar sesión</button>
+        </form>
+      </div>
+    </main>
+  </body>
+</html>

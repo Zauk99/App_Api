@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>TaskFlow Solutions</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+    <link rel="shortcut icon" th:href="@{/img/logo.png}" type="image/x-icon"> 
+</head>
+<body>
+    <div class="cabeza">
+        <img th:src="@{/img/logo.png}" alt="Logo" />
+        <a th:href="@{/iniciar-sesion}" class="boton-enlace">Iniciar sesión</a>
+    </div>
+
+    <div class="titulo">
+        <h1>Taskflow Solutions</h1>
+    </div>
+
+    <div class="contenido-principal">
+        <div class="imagen">
+             <img th:src="@{/img/Dashboard.png}" alt="Dashboard Preview" />
+        </div>
+
+        <div class="texto">
+            <p>Gestione proyectos complejos con una facilidad asombrosa.</p>
+            <p>
+                <strong>TaskFlow Solutions</strong> le ofrece tableros visuales e
+                intuitivos para que su equipo pueda ver el progreso, identificar
+                cuellos de botella y priorizar el trabajo de forma ágil. Fomente la
+                colaboración transparente, mantenga todas las comunicaciones y
+                documentos centralizados.
+            </p>
+
+            <div class="boton-central">
+                <a th:href="@{/iniciar-sesion}" class="boton-enlace">Iniciar sesión</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
