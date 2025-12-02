@@ -4,6 +4,5 @@ gestion\tareas\backend\services\UsuarioApiClientService.class
 gestion\tareas\backend\dto\UsuarioDTO.class
 gestion\tareas\backend\config\AppConfig.class
 gestion\tareas\backend\controller\AuthController.class
-gestion\tareas\backend\controller\LoginController.class
 gestion\tareas\backend\BackendApplication.class
 gestion\tareas\backend\config\WebSecurityConfig.class

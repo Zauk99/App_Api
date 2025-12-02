@@ -2,7 +2,6 @@ C:\Users\Pablo Herrera\Downloads\backend\src\main\java\gestion\tareas\backend\Ba
 C:\Users\Pablo Herrera\Downloads\backend\src\main\java\gestion\tareas\backend\config\AppConfig.java
 C:\Users\Pablo Herrera\Downloads\backend\src\main\java\gestion\tareas\backend\config\WebSecurityConfig.java
 C:\Users\Pablo Herrera\Downloads\backend\src\main\java\gestion\tareas\backend\controller\AuthController.java
-C:\Users\Pablo Herrera\Downloads\backend\src\main\java\gestion\tareas\backend\controller\LoginController.java
 C:\Users\Pablo Herrera\Downloads\backend\src\main\java\gestion\tareas\backend\controller\UsuarioWebController.java
 C:\Users\Pablo Herrera\Downloads\backend\src\main\java\gestion\tareas\backend\dto\UsuarioDTO.java
 C:\Users\Pablo Herrera\Downloads\backend\src\main\java\gestion\tareas\backend\enums\RolUsuario.java

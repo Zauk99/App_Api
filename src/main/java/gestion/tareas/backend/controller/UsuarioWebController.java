@@ -24,26 +24,29 @@ public class UsuarioWebController {
     // C y R: Mostrar la lista de usuarios (Página principal)
     // URL: GET /usuarios
     // ===================================
-    // UsuarioWebController.java (Método listarUsuarios)
-
-    // UsuarioWebController.java (Método listarUsuarios corregido)
 
     @GetMapping
     public String listarUsuarios(Model model, HttpSession session) {
-        // 1. 🛑 VERIFICACIÓN DE SESIÓN (CRÍTICO)
-        // Asumimos que "userId" se guarda en la sesión al iniciar sesión
+
+        // 🛑 IMPLEMENTACIÓN DEL CONTROL DE ACCESO MANUAL POR ID
         Long userId = (Long) session.getAttribute("userId");
 
-        // Si no hay ID de usuario en la sesión, redirigir al login
-        if (userId == null) {
+        // Si no hay ID en la sesión, o el ID es 0, redirigir.
+        if (userId == null || userId <= 0) {
             return "redirect:/iniciar-sesion";
         }
+        // ----------------------------------------------------
 
-        // 2. Ejecutar la lógica de negocio (solo si el usuario está autenticado)
+        // 2. Ejecutar la lógica de negocio
         try {
             List<UsuarioDTO> usuarios = usuarioService.obtenerTodosLosUsuarios();
             model.addAttribute("usuarios", usuarios);
-            model.addAttribute("idAdminProtegido", 3L); // Pasando el ID Admin
+
+            final Long ID_ADMIN_PROTEGIDO = 3L;
+            model.addAttribute("idAdminProtegido", ID_ADMIN_PROTEGIDO);
+            // Usamos el ID de la sesión para mostrar contenido específico (ej:
+            // "idAdminProtegido")
+            model.addAttribute("currentUserId", userId);
 
             return "lista-usuarios";
 
